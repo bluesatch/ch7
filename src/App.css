@@ -1,0 +1,11 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #eaeae3;
+    font-family: sans-serif;
+}
+
+.bold {
+    font-weight: 900;
+    color: dodgerblue;
+}
