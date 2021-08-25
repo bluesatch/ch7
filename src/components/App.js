@@ -1,8 +1,8 @@
 // import Checkbox from './Checkbox'
 // import { ConsoleWriter } from 'istanbul-lib-report';
-import React/*, { useEffect } */from 'react';
-// import { useAnyKeyToRender } from '../hooks/useAnyKeyToRender';
-import WordCount from './WordCount';
+import React from 'react';
+import { useAnyKeyToRender } from '../hooks/useAnyKeyToRender';
+// import WordCount from './WordCount';
 import '../App.css';
 
 // const words = ['sick', 'powder', 'day'];
@@ -43,10 +43,25 @@ function App() {
   //   console.log('fresh render');
   // }, [words])
 
+  // const fn = ()=> {
+  //   console.log('hello');
+  //   console.log('world');
+  // }
+
+  // const fn = useCallback(() => {
+  //   console.log('hello');
+  //   console.log('world');
+  // }, [])
+
+  // useEffect(()=> {
+  //   console.log('fresh render');
+  //   fn();
+  // }, [fn])
+
   return (
     <section>
       <h1>Satch</h1>
-      <WordCount>You are not going to believe this but...</WordCount>
+      {/* <WordCount>You are not going to believe this but...</WordCount> */}
       {/* <Checkbox /> */}
       {/* <label>Favorite phrase:</label>
       <input
