@@ -9,3 +9,11 @@ body {
     font-weight: 900;
     color: dodgerblue;
 }
+
+.section {
+    margin: 20px auto;
+    padding: 20px;
+    width: 90%;
+    background-color: whitesmoke;
+    border: 1px solid dodgerblue;
+}

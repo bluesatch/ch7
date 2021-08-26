@@ -1,11 +1,16 @@
-// import Checkbox from './Checkbox'
 // import { ConsoleWriter } from 'istanbul-lib-report';
-import React from 'react';
-import { useAnyKeyToRender } from '../hooks/useAnyKeyToRender';
+import React, { useState, memo, useCallback } from 'react';
+import Numbers from './Numbers';
+import User from './User';
+import Cat from './Cat';
+// import Checkbox from './Checkbox'
+// import { useAnyKeyToRender } from '../hooks/useAnyKeyToRender';
 // import WordCount from './WordCount';
 import '../App.css';
 
 // const words = ['sick', 'powder', 'day'];
+
+const PureCat = memo(Cat);
 
 function App() {
 
@@ -58,8 +63,43 @@ function App() {
   //   fn();
   // }, [fn])
 
+  // useLayoutEffect 
+  /*
+    Render cycle:
+
+    1. Render
+    2. useLayoutEffect 
+    3. Browser paint
+    4. useEffect 
+  
+  */
+
+  // useEffect(()=> console.log('useEffect'));
+  // useLayoutEffect(()=> console.log('useLayoutEffect'));
+
+  // const [x, setX] = useState(0);
+  // const [y, setY] = useState(0);
+
+  // const setPosition = ({ x, y}) => {
+  //   setX(x);
+  //   setY(y);
+  // };
+
+
+  // useLayoutEffect(()=> {
+  //   window.addEventListener('mousemove', setPosition);
+  //   return ()=> window.removeEventListener('mousemove', setPosition)
+  // }, []);
+
+  const [cats, setCats] = useState(['Biscuit', 'Jungle', 'Outlaw']);
+
+  const RenderCatOnce = memo(Cat, ()=> true);
+  const AlwaysRenderCat = memo(Cat, ()=> false);
+
+
+
   return (
-    <section>
+    <section className="section">
       <h1>Satch</h1>
       {/* <WordCount>You are not going to believe this but...</WordCount> */}
       {/* <Checkbox /> */}
@@ -71,6 +111,15 @@ function App() {
       />
       <button onClick={createPhrase}>send</button>
       <h1>{val}</h1> */}
+      {/* <div>X: {x}</div>
+      <div>Y: {y}</div> */}
+      <Numbers />
+      <User />
+      {cats.map((name, i) => (
+        <PureCat key={i} name={name} meow={name=> console.log(`${name} has meowed`)} />
+      ))}
+      <button onClick={()=> setCats([...cats, prompt('Name a cat')])}>Add a Cat</button>
+
     </section>
 
   );
