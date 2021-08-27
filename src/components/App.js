@@ -96,6 +96,7 @@ function App() {
   const RenderCatOnce = memo(Cat, ()=> true);
   const AlwaysRenderCat = memo(Cat, ()=> false);
 
+  const meow = useCallback(name => console.log(`${name} has meowed`), []);
 
 
   return (
@@ -115,9 +116,11 @@ function App() {
       <div>Y: {y}</div> */}
       <Numbers />
       <User />
-      {cats.map((name, i) => (
+      {/* {cats.map((name, i) => (
         <PureCat key={i} name={name} meow={name=> console.log(`${name} has meowed`)} />
-      ))}
+      ))} */}
+
+      <PureCat name="Biscuit" meow={meow} />
       <button onClick={()=> setCats([...cats, prompt('Name a cat')])}>Add a Cat</button>
 
     </section>
